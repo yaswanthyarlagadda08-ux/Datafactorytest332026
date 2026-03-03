@@ -5,11 +5,20 @@
 			"referenceName": "ls_datalakesink",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"dssink_parameter": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().dssink_parameter",
+					"type": "Expression"
+				},
 				"fileSystem": "bronze"
 			},
 			"columnDelimiter": ",",

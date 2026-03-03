@@ -5,11 +5,20 @@
 			"referenceName": "ls_datalakesource",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"dssoucre_parameter": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().dssoucre_parameter",
+					"type": "Expression"
+				},
 				"fileSystem": "raw"
 			},
 			"columnDelimiter": ",",

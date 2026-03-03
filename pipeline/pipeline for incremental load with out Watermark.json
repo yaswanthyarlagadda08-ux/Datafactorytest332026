@@ -20,7 +20,6 @@
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
-							"wildcardFileName": "*",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
@@ -51,17 +50,34 @@
 				"inputs": [
 					{
 						"referenceName": "ds_datalakesource",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"dssoucre_parameter": {
+								"value": "@pipeline().parameters.pip_file",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "ds_datalakesink",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"dssink_parameter": {
+								"value": "@pipeline().parameters.pip_file",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			}
 		],
+		"parameters": {
+			"pip_file": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
