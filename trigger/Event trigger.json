@@ -1,0 +1,24 @@
+{
+	"name": "Event trigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pipeline for incremental load with out Watermark",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/raw/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/3876ed55-1960-4233-837c-a781f435d301/resourceGroups/yaswanthRG/providers/Microsoft.Storage/storageAccounts/yaswanthdatalake332026",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
